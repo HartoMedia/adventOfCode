@@ -1,3 +1,3 @@
-module advent-of-code
+module advent-of-code-day1
 
 go 1.25
