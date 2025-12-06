@@ -31,36 +31,27 @@ func delete_until(list, value) {
     if index != null {
         list.erase(0, index + 1)
     }
-	print(list)
     return list
 }
 
+func highestNumberNotInLasteleven(list) {
+	let listLen = list.length
+	const lastEleven = listLen - 12
+	
+	let sublist = list.sublist(0, lastEleven)
+
+	return sublist.findMax()
+}
+
 banks.each(->(zkb) {
-	let zwiRes = 0
-	let max = 0
-	let zweiteMax = 0
-	// zwiSpi = zwischenspeicher
-	let zwiSpi = 0
-	const listLen = zkb.length
+	let zwiRes = "0"
+	let nr = 0
+	nr = highestNumberNotInLasteleven(zkb)
+
+	delete_until(zkb,nr)
+	print(nr)
 	print(zkb)
-	max = zkb.findMax()
-	
-	print("max")
-	print(max)
-
-	if zkb[listLen-1] == max {
-		zwiSpi = zkb.pop()
-		zweiteMax = zkb.findMax()
-		zwiRes = zweiteMax * 10 + zwiSpi
-	} else {
-		const newList = delete_until(zkb, max)
-		zweiteMax = zkb.findMax()
-		zwiRes = max * 10 + zweiteMax
-	}
-
-	print(zwiRes)
-	
-	result += zwiRes
+	result += zwiRes.to_number()
 
 	print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
 	
